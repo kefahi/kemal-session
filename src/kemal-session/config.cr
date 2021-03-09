@@ -11,7 +11,8 @@ module Kemal
       @secure : Bool
       @domain : String?
       @path : String
-      property timeout, gc_interval, cookie_name, engine, secret, secure, domain, path
+      @samesite : HTTP::Cookie::SameSite
+      property timeout, gc_interval, cookie_name, engine, secret, secure, domain, path, samesite
 
       def engine=(e : Engine)
         @engine = e
@@ -26,6 +27,7 @@ module Kemal
         @secure = false
         @domain = nil
         @path = "/"
+        @samesite = HTTP::Cookie::SameSite::None
       end
     end # Config
 
